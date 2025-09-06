@@ -1,12 +1,122 @@
- <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Page Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indie Games Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h2 class="nav-logo">PixelForge</h2>
+            <ul class="nav-menu">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#portfolio" class="nav-link">Games</a></li>
+                <li><a href="#story" class="nav-link">Story</a></li>
+                <li><a href="#contact" class="nav-link">Connect</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
+    <section id="hero" class="hero-section">
+        <div class="hero-container">
+            <h1 class="hero-title">Crafting Digital Adventures</h1>
+            <p class="hero-subtitle">Independent game developer creating immersive experiences</p>
+            <button class="cta-button" onclick="scrollToSection('portfolio')">Explore Games</button>
+        </div>
+        <div class="hero-background"></div>
+    </section>
 
+    <section id="portfolio" class="games-section">
+        <div class="section-container">
+            <h2 class="section-title">Featured Games</h2>
+            <div class="games-filter">
+                <button class="filter-btn active" data-filter="all">All Games</button>
+                <button class="filter-btn" data-filter="released">Released</button>
+                <button class="filter-btn" data-filter="development">In Development</button>
+                <button class="filter-btn" data-filter="beta">Beta</button>
+                <button class="filter-btn" data-filter="coming-soon">Coming Soon</button>
+            </div>
+            <div class="games-grid" id="gamesGrid">
+                <div class="loading-spinner">Loading games...</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="story" class="about-section">
+        <div class="section-container">
+            <div class="about-content">
+                <h2 class="section-title">The Developer's Journey</h2>
+                <p class="about-text">Passionate about creating unique gaming experiences that blend creativity with technical innovation. Every game tells a story, and I'm here to craft yours.</p>
+                <div class="skills-grid">
+                    <div class="skill-item">Unity</div>
+                    <div class="skill-item">C#</div>
+                    <div class="skill-item">Pixel Art</div>
+                    <div class="skill-item">Game Design</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="section-container">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <p>hello@pixelforge.dev</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Social</h3>
+                    <p>@PixelForgeGames</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="newsletter" class="newsletter-section">
+        <div class="section-container">
+            <h2 class="section-title">Stay Updated</h2>
+            <p class="newsletter-text">Get notified about new game releases and development updates</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+            <div class="newsletter-message" id="newsletterMessage"></div>
+        </div>
+    </section>
+
+    <!-- Game Details Modal -->
+    <div id="gameModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-video">
+                <video id="gameVideo" autoplay>
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="modal-details">
+                <h2 id="modalTitle" class="modal-title"></h2>
+                <p id="modalDescription" class="modal-description"></p>
+                <div id="modalFeatures" class="modal-features"></div>
+                <div class="modal-actions">
+                    <a id="steamLink" href="#" target="_blank" class="steam-button">
+                        <span>🎮</span> View on Steam
+                    </a>
+                    <span id="modalStatus" class="modal-status"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
-</html> 
+</html>
